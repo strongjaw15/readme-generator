@@ -69,7 +69,7 @@ inquirer
   ])
   .then((data) => {
     let finalString = 
-    `# ${data.title}\n\n## Badges\n\n![](https://img.shields.io/badge/License-${data.license}-green)\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [License](#license)\n- [Contributing](#Contributing)\n- [Tests](#Tests)\n- [Questions](#Questions)\n- [Credits](#credits)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\nThis application is covered under the ${data.license} license.\n\n## Contributing\n\n${data.contributing}\n\n## Tests\n\n${data.tests}\n\n## Questions\n\nPlease direct your questions to:\n- ![${data.github}](${data.github}) \n- ![${data.email}](${data.email})\n\n## Credits\n\n${data.credits}`;
+    `# ${data.title}\n\n## Badges\n\n![](https://img.shields.io/badge/License-${data.license}-green)\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [License](#license)\n- [Contributing](#Contributing)\n- [Tests](#Tests)\n- [Questions](#Questions)\n- [Credits](#credits)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\nThis application is covered under the ${data.license} license.\n\n## Contributing\n\n${data.contributing}\n\n## Tests\n\n${data.tests}\n\n## Questions\n\nPlease direct your questions to:\n- ${data.github}\n- ${data.email}\n\n## Credits\n\n${data.credits}`;
 
     fs.writeFile("README.md", finalString, (err) => {
       if (err){
