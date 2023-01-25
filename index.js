@@ -14,7 +14,8 @@ inquirer
       - What was your motivation?
       - Why did you build this project?
       - What problem does it solve?
-      - What did you learn?`,
+      - What did you learn?
+      `,
       name: "description"
     },
     {
@@ -108,11 +109,11 @@ inquirer
     
     ${data.credits}`;
 
-    // fs.writeFile("index.html", finalString, (err) => {
-    //   if (err)
-    //     console.log(err);
-    // })
-    fs.writeFile("index.html", finalString, null)
-
-    // fs.writeFile("index.html", finalString)
+    fs.writeFile("index.html", finalString, (err) => {
+      if (err){
+        console.log(err)
+      } else {
+        console.log("README successfully written!")
+      }
+    })
   })
