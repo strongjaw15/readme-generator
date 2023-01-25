@@ -32,12 +32,12 @@ inquirer
       type: "list",
       message: `One section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to https://choosealicense.com/.`,
       choices: [
-        "Apache 2.0",
-        "BSD 2-Clause",
-        "BSD 3-Clause",
+        "Apache_2.0",
+        "BSD_2-Clause",
+        "BSD_3-Clause",
         "GPL",
         "MIT",
-        "Mozilla Public License 2.0"],
+        "Mozilla_Public_License_2.0"],
       name: "license"
     },
     {
@@ -52,6 +52,16 @@ inquirer
     },
     {
       type: "input",
+      message: `Please enter your GitHub URL.`,
+      name: "github"
+    },
+    {
+      type: "input",
+      message: `Please enter your preferred email address for questions.`,
+      name: "email"
+    },
+    {
+      type: "input",
       message: `List your collaborators, if any, with links to their GitHub profiles. If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section. If you followed tutorials, include links to those here as well.`,
       name: "credits"
     },
@@ -59,57 +69,9 @@ inquirer
   ])
   .then((data) => {
     let finalString = 
-    `# ${data.title}
+    `# ${data.title}\n\n## Badges\n\n![](https://img.shields.io/badge/License-${data.license}-green)\n\n## Description\n\n${data.description}\n\n## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [License](#license)\n- [Contributing](#Contributing)\n- [Tests](#Tests)\n- [Questions](#Questions)\n- [Credits](#credits)\n\n## Installation\n\n${data.installation}\n\n## Usage\n\n${data.usage}\n\n## License\n\nThis application is covered under the ${data.license} license.\n\n## Contributing\n\n${data.contributing}\n\n## Tests\n\n${data.tests}\n\n## Questions\n\nPlease direct your questions to:\n- ![${data.github}](${data.github}) \n- ![${data.email}](${data.email})\n\n## Credits\n\n${data.credits}`;
 
-    ## Badges
-    
-    ![](https://img.shields.io/badge/License-${data.license}-green)
-    
-    ## Description
-    
-    ${data.description}
-    
-    ## Table of Contents
-    
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [License](#license)
-    - [Contributing](#Contributing)
-    - [Tests](#Tests)
-    - [Questions](#Questions)
-    - [Credits](#credits)
-    
-    ## Installation
-    
-    ${data.installation}
-    
-    ## Usage
-    
-    ${data.usage}
-    
-    ## License
-    
-    This application is covered under the ${data.license} license.
-    
-    ## Contributing
-    
-    ${data.contributing}
-    
-    ## Tests
-    
-    ${data.tests}
-    
-    ## Questions
-    
-    Please direct your questions to:
-    - ![](${data.github}) 
-    - ![](${data.email})
-    
-    ## Credits
-    
-    ${data.credits}`;
-
-    fs.writeFile("index.html", finalString, (err) => {
+    fs.writeFile("README.md", finalString, (err) => {
       if (err){
         console.log(err)
       } else {
